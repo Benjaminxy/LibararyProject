@@ -1,9 +1,10 @@
 package Repository;
 
+import dto.SimpleBook;
 import model.Book;
 
 public class BookRepository {
-    private static  Book[] books = new Book [100];
+    private final static  Book[] books = new Book [100];
     private  static int size;
 
 
@@ -29,7 +30,7 @@ public class BookRepository {
         return false ;
     }
 
-    public Book finByTitle(String title) {
+    public Book findByTitle(String title) {
 
         for (int i = 0; i < books.length; i++) {
 
@@ -50,7 +51,7 @@ public class BookRepository {
             if(books[i].equals(findBook))
             {
                 for (int j = i; j < size-1 ; j++) {
-                    books[i]=books[i+1];
+                    books[j]=books[j+1];
 
                 }
                 books[size-1]=null;
@@ -61,5 +62,33 @@ public class BookRepository {
 
 
         }
+    }
+
+    public int getBookCount() {
+
+        return size;
+    }
+
+    public Book[] getAllBooks(int quantity) {
+        Book [] bookList = new Book[quantity];
+        for (int i = 0; i < quantity; i++) {
+
+            bookList[i]=books[i];
+
+
+        }
+        return bookList;
+    }
+
+
+    public SimpleBook [] getAllSimpleBooks(int quantity) {
+        SimpleBook[] bookList = new SimpleBook[quantity];
+        for (int i = 0; i < quantity; i++) {
+
+            bookList [i] = new  SimpleBook (books[i].getTitle(), books[i].getWriterName());
+
+
+        }
+        return bookList;
     }
 }

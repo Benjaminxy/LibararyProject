@@ -26,4 +26,13 @@ public class Person {
         return nationalCode;
 
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", nationalCode='" + nationalCode + '\'' +
+                '}';
+    }
 }

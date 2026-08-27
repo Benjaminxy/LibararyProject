@@ -29,4 +29,19 @@ public class UserRepository {
         }
        return  false;
     }
+
+    public int getUserCount() {
+
+        return size;
+    }
+
+    public User[] getAllUsers(int number) {
+        User []userList = new User[number];
+        for (int i = 0; i < userList.length; i++) {
+
+            userList [i]=users[i];
+        }
+
+        return userList;
+    }
 }

@@ -9,7 +9,7 @@ public class LoanRepository {
 public void save(Loan loan) {
     for (int i = 0; i < loans.length; i++) {
         if (loans[i] == null) {
-            size++;
+           ++size;
             loans[i] = loan;
             break;
         }

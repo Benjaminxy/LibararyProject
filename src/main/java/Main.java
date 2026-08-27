@@ -1,13 +1,17 @@
 import Service.BookService;
 import Service.UserService;
+import dto.SimpleBook;
 import model.Book;
 import model.User;
+
+import java.time.LocalDate;
 
 public class Main {
 
     public static void main(String[] args) {
 
         BookService bookService = new BookService();
+        UserService userService = new UserService();
 
 
         Book book1 = new Book(
@@ -34,9 +38,26 @@ public class Main {
 
         System.out.println(bookService.removeBook("karim"));
 
-        User user1 = new User("Benjamin" ,"aA1!slkdjf","3080000000");
+        User user1 = new User("Benjamin" ,"aA1!slkdjf","3080000000", LocalDate.now());
+
+        System.out.println(userService.addUser(user1));
 
 
-        UserService user2 = new UserService();
-        System.out.println(user2.addUser(user1));
+        Book [] allBooks = bookService.getAllBooks();
+        for (int i = 0; i < allBooks.length; i++) {
+            System.out.println(allBooks[i]);
+
+        }
+
+        User [] allUsers = userService.getAllUsers();
+        for (int i = 0; i < allUsers.length; i++) {
+            System.out.println(allUsers[i]);
+
+        }
+
+        SimpleBook [] allSimpleBooks = bookService.getAllSimpleBooks();
+        for (int i = 0; i < allSimpleBooks.length; i++) {
+            System.out.println(allSimpleBooks[i]);
+
+        }
     }}

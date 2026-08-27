@@ -36,6 +36,13 @@ public class UserService {
         return true;
     }
 
+    public User [] getAllUsers () {
+
+       int number =  userRepository.getUserCount();
+     return    userRepository.getAllUsers (number);
+
+    }
+
 
 
 }

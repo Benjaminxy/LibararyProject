@@ -2,8 +2,8 @@ package model;
 
 public class Admin extends Person {
 
-    public Admin(String firstname , String lastname , String nationalCode) {
+    public Admin(String firstname , String password , String nationalCode) {
 
-        super (firstname,lastname,nationalCode);
+        super (firstname,password,nationalCode);
     }
 }

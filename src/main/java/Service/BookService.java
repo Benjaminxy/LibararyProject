@@ -1,12 +1,13 @@
 package Service;
 
 import Repository.BookRepository;
+import dto.SimpleBook;
 import model.Book;
 
 public class BookService {
 
 
-    private final BookRepository bookRepository = new BookRepository();
+    private final static BookRepository bookRepository = new BookRepository();
     public boolean addBook(Book book){
       if  (!bookRepository.save(book)){
           return false;
@@ -18,7 +19,7 @@ public class BookService {
     public boolean removeBook(String title) {
 
 
-     Book findBook=  bookRepository.finByTitle(title);
+     Book findBook=  bookRepository.findByTitle(title);
 
      if(findBook==null) {
          return false;
@@ -29,4 +30,17 @@ public class BookService {
 
     return true ;
     }
+
+
+
+    public Book [] getAllBooks() {
+        int quantity = bookRepository.getBookCount();
+       return bookRepository.getAllBooks (quantity) ;
+    }
+
+
+   public SimpleBook [] getAllSimpleBooks() {
+       int quantity = bookRepository.getBookCount();
+       return bookRepository.getAllSimpleBooks (quantity) ;
+   }
 }
