@@ -1,12 +1,17 @@
 package Repository;
 
+import model.Book;
 import model.User;
+
+
 
 public class UserRepository {
 
     private static  User [] users = new User[200];
 
     private static int size;
+
+
 
 
     public boolean addUser(User user) {
@@ -43,5 +48,16 @@ public class UserRepository {
         }
 
         return userList;
+    }
+
+    public User findUserByNationalCode(String nationalCode) {
+        for (int i = 0; i < users.length; i++) {
+            if(users[i] != null && users[i].getNationalCode().equals(nationalCode))
+            {
+                return users[i];
+            }
+            
+        }
+        return null;
     }
 }

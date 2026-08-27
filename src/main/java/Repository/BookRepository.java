@@ -93,7 +93,7 @@ public class BookRepository {
     }
 
 
-    public Book [] FindBookByWriteNames(String writerName) {
+    public Book [] findBooksByWriterName(String writerName) {
         int counter = 0;
         for (int i = 0; i < size; i++) {
             if(books[i].getWriterName().equals(writerName)) {
@@ -121,4 +121,31 @@ public class BookRepository {
         return writerBook ;
 
     }
+
+    public Book[] findBooksByTitle(String title) {
+        int counter = 0;
+        for (int i = 0; i < size; i++) {
+            if(books[i].getTitle().equals(title)) {
+
+                counter++;
+
+            }
+
+        }
+        Book [] bookTitle = new Book[counter];
+        int j = 0;
+        for (int i = 0; i < size; i++) {
+            if(books[i].getTitle().equals(title)){
+                bookTitle [j]=books[i];
+                j++;
+            }
+            if(j==counter)
+            {
+                break;
+            }
+
+        }
+        return bookTitle ;
+    }
+
 }

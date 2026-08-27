@@ -12,6 +12,10 @@ public class User extends Person{
         this.registerDate=registerDate;
     }
 
+    public LocalDate getRegisterDate() {
+        return registerDate;
+    }
+
     @Override
     public String toString() {
         return "User{" +

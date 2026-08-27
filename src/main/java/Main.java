@@ -1,4 +1,5 @@
 import Service.BookService;
+import Service.LoanService;
 import Service.UserService;
 import dto.SimpleBook;
 import model.Book;
@@ -50,28 +51,34 @@ public class Main {
 
 
         Book [] allBooks = bookService.getAllBooks();
-        for (int i = 0; i < allBooks.length; i++) {
-            System.out.println(allBooks[i]);
-
-        }
+        printSection("All Books", allBooks);
 
         User [] allUsers = userService.getAllUsers();
-        for (int i = 0; i < allUsers.length; i++) {
-            System.out.println(allUsers[i]);
-
-        }
+        printSection("All Users", allUsers);
 
         SimpleBook [] allSimpleBooks = bookService.getAllSimpleBooks();
-        for (int i = 0; i < allSimpleBooks.length; i++) {
-            System.out.println(allSimpleBooks[i]);
+        printSection("All Simple Books", allSimpleBooks);
 
+        Book [] booksByWriter = bookService.findBooksByWriterName("Joshua Bloch");
+        printSection("Books by Joshua Bloch", booksByWriter);
+
+        LoanService loanService = new LoanService();
+
+        // "Effective Java" has quantity 3, so the 4th loan of it should fail
+        for (int i = 1; i <= 4; i++) {
+            boolean loaned = loanService.loanBook("Effective Java", user1.getNationalCode());
+            System.out.println("Loan attempt " + i + " for 'Effective Java': " + loaned);
         }
 
-        Book [] writebook = bookService.FindBookByWriteNames("Joshua Bloch");
-        for (int i = 0; i < writebook.length; i++) {
-            System.out.println(writebook[i]);
+        // book title that doesn't exist  exposes the missing null check in LoanService
+        boolean loanedMissingBook = loanService.loanBook("Not A Real Book", user1.getNationalCode());
+        System.out.println("Loan attempt for missing book: " + loanedMissingBook);
+    }
 
+    private static void printSection(String title, Object[] items) {
+        System.out.println("\n-- " + title + " --");
+        for (Object item : items) {
+            System.out.println(item);
         }
-
-
-    }}
+    }
+}

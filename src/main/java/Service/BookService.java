@@ -44,13 +44,26 @@ public class BookService {
        return bookRepository.getAllSimpleBooks (quantity) ;
    }
 
-   public Book []  FindBookByWriteNames(String writerName)
+   public Book []  findBooksByWriterName(String writerName)
     {
 
 
 
-        return  bookRepository.FindBookByWriteNames(writerName);
+        return  bookRepository.findBooksByWriterName(writerName);
 
+    }
+
+    public Book []  findBooksByTitle(String title)
+    {
+
+
+
+        return  bookRepository.findBooksByTitle(title);
+
+    }
+
+    public Book getBookByTitle(String title) {
+        return bookRepository.findByTitle(title);
     }
 
 }

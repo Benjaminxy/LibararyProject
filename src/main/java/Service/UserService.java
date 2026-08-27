@@ -4,9 +4,12 @@ import Repository.UserRepository;
 import model.User;
 import utility.Validator;
 
+import java.time.LocalDate;
+
 public class UserService {
     private final UserRepository userRepository= new UserRepository();
     private final Validator validator = new Validator();
+    private final BookService bookService = new BookService();
 
     public boolean addUser(User user)
     {
@@ -42,6 +45,7 @@ public class UserService {
      return    userRepository.getAllUsers (number);
 
     }
+
 
 
 
