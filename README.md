@@ -1,7 +1,7 @@
 # Library Project
 
 A small Java practice project for managing a library: books, users, and book loans.
-No database, no framework — everything is kept in plain arrays in memory, so once you
+No database, no framework everything is kept in plain arrays in memory, so once you
 stop the program, everything you added is gone. It's meant for learning, not production.
 
 ## What it can do
@@ -36,14 +36,4 @@ mvn compile exec:java -Dexec.mainClass=Main
 
 Or just run `Main.java` directly from your IDE — that's honestly the easiest way.
 
-## Heads up / known rough edges
 
-This is still a work in progress, built while learning, so a few things are worth knowing:
-
-- Everything is stored in fixed-size arrays (e.g. 100 books max) — there's no resizing.
-- `LoanService.loanBook(...)` will throw a `NullPointerException` if you pass a book
-  title that doesn't exist — there's no null check yet after looking up the book.
-- No persistence: restart the app and your data is gone.
-
-Feel free to poke around the `Service` and `Repository` classes to see how each
-feature is actually implemented.
