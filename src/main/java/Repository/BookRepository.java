@@ -91,4 +91,34 @@ public class BookRepository {
         }
         return bookList;
     }
+
+
+    public Book [] FindBookByWriteNames(String writerName) {
+        int counter = 0;
+        for (int i = 0; i < size; i++) {
+            if(books[i].getWriterName().equals(writerName)) {
+
+                counter++;
+
+            }
+
+        }
+        Book [] writerBook = new Book[counter];
+        int j = 0;
+        for (int i = 0; i < size; i++) {
+            if(books[i].getWriterName().equals(writerName)){
+                writerBook [j]=books[i];
+                j++;
+            }
+            if(j==counter)
+            {
+                break;
+            }
+
+        }
+
+
+        return writerBook ;
+
+    }
 }

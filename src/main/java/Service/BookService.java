@@ -43,4 +43,14 @@ public class BookService {
        int quantity = bookRepository.getBookCount();
        return bookRepository.getAllSimpleBooks (quantity) ;
    }
+
+   public Book []  FindBookByWriteNames(String writerName)
+    {
+
+
+
+        return  bookRepository.FindBookByWriteNames(writerName);
+
+    }
+
 }

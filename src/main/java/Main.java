@@ -31,10 +31,16 @@ public class Main {
                 "Herbert Schildt",
                 10
         );
+        Book book4 = new Book(
+                "Cyber Hacker",
+                "Joshua Bloch",
+                15
+        );
 
         System.out.println(bookService.addBook(book1));
         System.out.println(bookService.addBook(book2));
         System.out.println(bookService.addBook(book3));
+        System.out.println(bookService.addBook(book4));
 
         System.out.println(bookService.removeBook("karim"));
 
@@ -60,4 +66,12 @@ public class Main {
             System.out.println(allSimpleBooks[i]);
 
         }
+
+        Book [] writebook = bookService.FindBookByWriteNames("Joshua Bloch");
+        for (int i = 0; i < writebook.length; i++) {
+            System.out.println(writebook[i]);
+
+        }
+
+
     }}
