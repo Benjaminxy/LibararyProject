@@ -30,4 +30,8 @@ BookService bookService = new BookService();
         return  true ;
 
     }
+
+    public boolean returnBook(String bookTitle, String nationalCode) {
+        return loanRepository.removeLoan(nationalCode, bookTitle);
+    }
 }

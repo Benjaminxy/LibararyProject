@@ -32,4 +32,21 @@ public void save(Loan loan) {
         }
     }
 }
+
+    public boolean removeLoan(String nationalCode, String bookTitle) {
+        for (int i = 0; i < size; i++) {
+            if (loans[i] != null
+                    && loans[i].getNationalCode().equals(nationalCode)
+                    && loans[i].getBookTitle().equals(bookTitle)) {
+
+                for (int j = i; j < size - 1; j++) {
+                    loans[j] = loans[j + 1];
+                }
+                loans[size - 1] = null;
+                size--;
+                return true;
+            }
+        }
+        return false;
+    }
 }

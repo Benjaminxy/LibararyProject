@@ -65,5 +65,10 @@ public class BookService {
     public Book getBookByTitle(String title) {
         return bookRepository.findByTitle(title);
     }
+    Book[] books = bookService.getAllBooks();
+for (Book book : books) {
+    System.out.println(book);
+}
+
 
 }
